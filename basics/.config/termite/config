@@ -1,0 +1,84 @@
+# depends on:
+#	- adobe-source-code-pro font
+
+[options]
+# enable bold font output
+allow_bold		=	true			
+
+# enable italoc font output
+allow_italic		=	true			
+
+# disable terminal beep
+audible_bell		=	false			
+
+# enable URLs to be opened in Browser on click
+clickable_url		=	true			
+
+# set the cursor blink behavior to the same as the rest of the system (GTK)
+cursor_blink		=	system			
+
+# so...the cursors shape is a small rectangle
+cursor_shape		=	block			
+
+# terminals window title can be adapted (i.e. the name of the current command)
+dynamic_title		=	true			
+
+# set terminal font
+font			=	Source Code Pro 11
+
+# disables fullscreen on F11 because fullscreen is toggled by i3 WM
+fullscreen		=	false			
+
+# hides the mouse when typing (it's useless then, isn't it?)
+mouse_autohide		=	true			
+
+# set a high number of lines to scroll backwards in terminal
+scrollback_lines	=	10000			
+
+# scrolls to the bottom, if a character is typed
+scroll_on_keystroke	=	true			
+
+# do not scroll to the bottom, if output is printed to the terminal
+scroll_on_output	=	false			
+
+# continue search from top, if bottom is reached
+search_wrap		=	true			
+
+# sets urgent flag for terminal, if bell controll sequence is emmited
+urgent_on_bell		=	true			
+
+
+[colors]
+# Base16 Default
+# Scheme: Chris Kempson (http://chriskempson.com)
+
+foreground      = #d0d0d0
+foreground_bold = #d0d0d0
+cursor          = #d0d0d0
+background      = #151515
+
+# 16 color space
+color0  = #151515
+color1  = #ac4142
+color2  = #90a959
+color3  = #f4bf75
+color4  = #6a9fb5
+color5  = #aa759f
+color6  = #75b5aa
+color7  = #d0d0d0
+color8  = #505050
+color9  = #ac4142
+color10 = #90a959
+color11 = #f4bf75
+color12 = #6a9fb5
+color13 = #aa759f
+color14 = #75b5aa
+color15 = #f5f5f5
+
+# 256 color space
+color16 = #d28445
+color17 = #8f5536
+color18 = #202020
+color19 = #303030
+color20 = #b0b0b0
+color21 = #e0e0e0
