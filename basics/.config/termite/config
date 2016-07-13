@@ -1,5 +1,5 @@
 # depends on:
-#	- adobe-source-code-pro font
+#	- adobe-source-code-pro-fonts
 
 [options]
 # enable bold font output
@@ -24,7 +24,7 @@ cursor_shape		=	block
 dynamic_title		=	true			
 
 # set terminal font
-font			=	Source Code Pro 11
+font			=	Source Code Pro 10 
 
 # disables fullscreen on F11 because fullscreen is toggled by i3 WM
 fullscreen		=	false			
