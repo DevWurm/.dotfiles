@@ -9,11 +9,11 @@ installLinks: installUserLinks installSystemLinks
 installDeps: installSystemDeps
 
 
-installUser: basics i3
+installUser: basics wm
 
-installUserLinks: basicsLinks i3Links
+installUserLinks: basicsLinks wmLinks
 
-installUserDeps: basicsDeps i3Deps
+installUserDeps: basicsDeps wmDeps
 
 
 installSystem: x
@@ -32,13 +32,13 @@ basicsDeps:
 	./install_deps.sh basics.deps
 
 
-i3: i3Links i3Deps
+wm: wmLinks wmDeps
 
-i3Links:
-	stow -v -t $(HOME) i3
+wmLinks:
+	stow -v -t $(HOME) wm
 
-i3Deps:
-	./install_deps.sh i3.deps
+wmDeps:
+	./install_deps.sh wm.deps
 
 
 x: xLinks xDeps
