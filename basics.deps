@@ -1,1 +1,6 @@
 adobe-source-code-pro-fonts
+firefox
+termite
+keychain
+zsh
+{oh-my-zsh, https://github.com/robbyrussell/oh-my-zsh}
