@@ -1,0 +1,11 @@
+neovim
+powerline-fonts
+python2-neovim
+clang
+ghc-mod
+jdk8-openjdk
+{tern; via npm}
+{import-js; via npm}
+python-jedi
+python2-jedi
+xsel

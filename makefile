@@ -9,11 +9,11 @@ installLinks: installUserLinks installSystemLinks
 installDeps: installSystemDeps
 
 
-installUser: basics wm
+installUser: basics wm nvim
 
-installUserLinks: basicsLinks wmLinks
+installUserLinks: basicsLinks wmLinks nvimLinks
 
-installUserDeps: basicsDeps wmDeps
+installUserDeps: basicsDeps wmDeps nvimDeps
 
 
 installSystem: x
@@ -40,6 +40,14 @@ wmLinks:
 wmDeps:
 	./install_deps.sh wm.deps
 
+nvim: nvimLinks nvimDeps
+
+nvimLinks:
+	mkdir -p $(HOME)/.config/nvim
+	stow -v -t $(HOME) nvim
+
+nvimDeps:
+	./install_deps.sh nvim.deps
 
 x: xLinks xDeps
 
