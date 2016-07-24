@@ -1,0 +1,14 @@
+[Layout]
+name=Notebook Screen Only
+
+[eDP1]
+primary
+mode= 2560x1440
+pos= 2048x180
+rotate= normal
+
+[HDMI1]
+off
+
+[DP2]
+off
