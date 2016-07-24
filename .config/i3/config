@@ -1,0 +1,274 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# This configuration file can be found at https://github.com/DevWurm/.dotfiles
+
+# The configuration depends on the following packages, fonts and scripts:
+#   - pulseaudio (for controlling audio with the keyboard keys)
+#   - xorg-backlight (for controlling the screen brightness with the keyboard keys)
+#   - playerctl (for controlling media players with the keyboard keys)
+#   - xf86-input-synaptics and ~/.scripts/toggletouchpad script (for switching the touchpad on/off with the keyboard key)
+#   - feh (for setting the backgrounf image)
+#   - fontawesome (for the symbols in the workspace names)
+#   - Yosemite San Francisco Font (for global font; https://github.com/supermarin/YosemiteSanFranciscoFont)
+#   - rofi and ~/.scripts/rofi-launcher script (as program launcher)
+#   - i3lock (or other locker)
+#   - termite (or other terminal)
+#   - i3-msg (controll i3 status)
+#   - compton (for transparency and transitions)
+#   - ~/.scripts/i3-openon script (to open programs on specific workspaces)
+#   - i3blocks, ~/.config/i3/i3blocks.conf config file and ~/.scripts/blocks/* scripts (for bar status command)
+
+
+# Configuration variables (set to your setup)
+  # modifier key: super key
+    set $mod Mod4 
+ 
+  # path to the wallpaper	
+    set $wallpaper /usr/share/backgrounds/wallpaper 
+
+  # terminal executable
+    set $terminal termite
+
+  # locker command
+    set $locker i3lock
+
+  # program launcher command (arguments: [bg-color] [text-color] [inactive-bg-color] [inactive-text-color] [monitor-height] [font-size])
+    set $launcher ~/.scripts/rofi-launcher \#2F343F \#9575cd \#2F343F \#F3F4F5 205 15
+
+
+# color setup
+  set $bg-color 	   #2F343F
+  set $inactive-bg-color   #2F343F
+  set $text-color          #F3F4F5
+  set $inactive-text-color #676E7D
+  set $urgent-bg-color     #E53935
+
+
+# workspace setup
+  set $workspace0 "0: "
+  set $workspace1 "1: "
+  set $workspace2 "2: "
+  set $workspace3 "3: "
+  set $workspace4 "4: "
+  set $workspace5 "5: "
+  set $workspace6 "6: "
+  set $workspace7 "7: "
+  set $workspace8 "8: "
+  set $workspace9 "9: "
+
+  # Program - Workspace bindings
+    for_window [class="Spotify"] move to workspace $workspace9
+    assign [class="Firefox"] $workspace1
+ 
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+  font pango: System San Francisco Display 10
+
+
+# modes
+  # resize window (you can also use the mouse for that)
+    mode "resize" {
+          # These bindings trigger as soon as you enter the resize mode
+
+          # Pressing left will shrink the window’s width.
+          # Pressing right will grow the window’s width.
+          # Pressing up will shrink the window’s height.
+          # Pressing down will grow the window’s height.
+            bindsym j resize shrink width 10 px or 10 ppt
+            bindsym k resize grow height 10 px or 10 ppt
+            bindsym l resize shrink height 10 px or 10 ppt
+            bindsym odiaeresis resize grow width 10 px or 10 ppt
+
+          # same bindings, but for the arrow keys
+            bindsym Left resize shrink width 10 px or 10 ppt
+            bindsym Down resize grow height 10 px or 10 ppt
+            bindsym Up resize shrink height 10 px or 10 ppt
+            bindsym Right resize grow width 10 px or 10 ppt
+
+          # back to normal: Enter or Escape
+            bindsym Return mode "default"
+            bindsym Escape mode "default"
+    }  
+    bindsym $mod+r mode "resize"
+
+  # System control mode
+    mode "system" {
+          # Keybindings for locking, shutdown, reboot, logout, suspending
+	    # locking
+	      bindsym $mod+l exec $locker; mode "default"; 
+	    # shutdown
+	      bindsym $mod+s exec shutdown now;
+	    # reboot
+	      bindsym $mod+r exec reboot;
+	    # logout
+	      bindsym $mod+Shift+l exec i3-msg exit;
+	    # suspend
+	      bindsym $mod+Shift+s exec $locker; mode "default"; systemctl suspend;
+
+          # back to normal: Enter or Escape
+            bindsym Return mode "default"
+            bindsym Escape mode "default"
+    }
+    bindsym $mod+s mode "system"
+
+
+# window setup
+  # window colors
+    #                       border              background         text                 indicator
+    client.focused          $bg-color           $bg-color          $text-color          #00ff00
+    client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+    client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+    client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+
+  # disable borders
+    hide_edge_borders both
+
+
+# Activate transparency (comment if you want to deactivate transparency; recommended on less powerfull systems)
+#   exec_always compton -f
+
+
+# Set background wallpaper
+  exec_always feh --bg-scale $wallpaper
+
+
+# bar
+  bar {
+  	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	  position bottom
+	  tray_output primary
+	  colors {
+		  background $bg-color
+	    	  separator #757575
+		  #                  border             background         text
+		  focused_workspace  $bg-color          $bg-color          $text-color
+		  inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		  urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+  }
+}
+
+
+# keybindings
+  # Use Mouse+$mod to drag floating windows to their wanted position
+    floating_modifier $mod
+
+  # start a terminal on the current workspace
+    bindsym $mod+Shift+Return exec $terminal
+
+  # start a terminal on the terminal workspace
+    bindsym $mod+Return exec ~/.scripts/i3-openon "$terminal" $workspace0
+
+  #kill focused window
+    bindsym $mod+Shift+q kill
+
+  # start the program launcher
+    bindsym $mod+q exec $launcher
+
+  # change focus
+    bindsym $mod+h focus left
+    bindsym $mod+j focus down
+    bindsym $mod+k focus up
+    bindsym $mod+l focus right
+
+  # alternatively, you can use the cursor keys:
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+  # move focused window
+    bindsym $mod+Shift+h move left
+    bindsym $mod+Shift+j move down
+    bindsym $mod+Shift+k move up
+    bindsym $mod+Shift+l move right
+
+  # alternatively, you can use the cursor keys:
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+  # split in horizontal orientation
+    bindsym $mod+x split h
+
+  # split in vertical orientation
+    bindsym $mod+y split v
+
+  # enter fullscreen mode for the focused container
+    bindsym $mod+f fullscreen toggle
+
+  # change container layout (stacked, tabbed, toggle split)
+    bindsym $mod+Shift+s layout stacking
+    bindsym $mod+Shift+t layout tabbed
+    # toggles the orientation of tiled windows / switches to tiling layout
+      bindsym $mod+Shift+o layout toggle split 
+
+  # toggle tiling / floating
+    bindsym $mod+Shift+space floating toggle
+
+  # change focus between tiling / floating windows
+    bindsym $mod+space focus mode_toggle
+
+  # focus the parent container
+    bindsym $mod+p focus parent
+
+  # focus the child container
+    bindsym $mod+c focus child
+
+  # workspaces
+    # switch to workspace
+      bindsym $mod+0 workspace $workspace0
+      bindsym $mod+1 workspace $workspace1 
+      bindsym $mod+2 workspace $workspace2 
+      bindsym $mod+3 workspace $workspace3
+      bindsym $mod+4 workspace $workspace4
+      bindsym $mod+5 workspace $workspace5
+      bindsym $mod+6 workspace $workspace6
+      bindsym $mod+7 workspace $workspace7
+      bindsym $mod+8 workspace $workspace8
+      bindsym $mod+9 workspace $workspace9
+
+    # move focused container to workspace
+      bindsym $mod+Shift+0 move container to workspace $workspace0
+      bindsym $mod+Shift+1 move container to workspace $workspace1
+      bindsym $mod+Shift+2 move container to workspace $workspace2
+      bindsym $mod+Shift+3 move container to workspace $workspace3
+      bindsym $mod+Shift+4 move container to workspace $workspace4
+      bindsym $mod+Shift+5 move container to workspace $workspace5
+      bindsym $mod+Shift+6 move container to workspace $workspace6
+      bindsym $mod+Shift+7 move container to workspace $workspace7
+      bindsym $mod+Shift+8 move container to workspace $workspace8
+      bindsym $mod+Shift+9 move container to workspace $workspace9
+
+ # reload the configuration file
+    bindsym $mod+Shift+c reload
+  
+  # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+    bindsym $mod+Shift+r restart
+  
+  # Audio controls
+    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+  # Sreen brightness controls
+    bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+    bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+  # Touchpad controls
+    bindsym XF86TouchpadToggle exec /opt/bin/toggletouchpad # toggle touchpad
+
+  # Media player controls
+    bindsym XF86AudioPlay exec playerctl play
+    bindsym XF86AudioPause exec playerctl pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+
+
+# autostart
+  exec gnome-keyring-daemon --components=gpg
+  exec /usr/lib/notify-osd-customizable/notify-osd
+  exec nm-applet

@@ -1,0 +1,27 @@
+#!/bin/sh
+
+## The script depends on the following packages, fonts and scripts:
+#    - coreutils (for 'df' and 'echo' command)
+#    - gawk (for 'awk' command)
+#    - sed (for 'sed' command)
+#    - fontawesome (for symbols)
+
+ Set default instance with parameter expansion
+BLOCK_INSTANCE=${BLOCK_INSTANCE:-"/"}
+
+used=$(df -h $BLOCK_INSTANCE | sed -n '2p' | awk '{print $3;}')
+size=$(df -h $BLOCK_INSTANCE | sed -n '2p' | awk '{print $2;}')
+share=$(df -h $BLOCK_INSTANCE | sed -n '2p' | awk '{print $5;}' | sed 's/%//')
+
+echo " ${used}/${size}"
+echo ""
+
+if [ $share -lt 85 ]
+then
+	echo
+elif [ $share -lt 90 ]
+then
+	echo "#f5ef3d"
+else
+	echo "#ee829f"
+fi
