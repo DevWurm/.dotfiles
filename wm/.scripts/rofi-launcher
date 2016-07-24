@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# The script depends on the following packages, fonts and scripts:
+#    - rofi (for 'rofi' command)
+
+BG_COLOR=$1
+TEXT_COLOR=$2
+INACTIVE_BG_COLOR=$3
+INACTIVE_TEXT_COLOR=$4
+MONITOR_SIZE=$5
+FONT_SIZE=$6 
+
+# start the program launcher
+rofi \
+-modi "drun" \
+-show drun \
+-lines 3 \
+-eh 2 \
+-width 100 \
+-padding $(echo "$(xwininfo -root |awk '/Height/ { print $2}') / 2.5" | bc) \
+-opacity "85" \
+-bw 0 \
+-color-enabled \
+-color-window "$INACTIVE_BG_COLOR, $INACTIVE_BG_COLOR" \
+-color-normal "$INACTIVE_BG_COLOR, $INACTIVE_TEXT_COLOR, $INACTIVE_BG_COLOR, $BG_COLOR, $TEXT_COLOR" \
+-color-urgent "$INACTIVE_BG_COLOR, $INACTIVE_TEXT_COLOR, $INACTIVE_BG_COLOR, $BG_COLOR, $TEXT_COLOR" \
+-color-active "$INACTIVE_BG_COLOR, $INACTIVE_TEXT_COLOR, $INACTIVE_BG_COLOR, $BG_COLOR, $TEXT_COLOR" \
+-font "System San Francisco Display $FONT_SIZE"

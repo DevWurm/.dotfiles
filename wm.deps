@@ -1,0 +1,35 @@
+i3-wm
+i3lock
+networkmanager
+network-manager-applet
+[notify-osd-customizable]
+xorg-xbacklight
+alsa-utils
+pulseaudio
+compton
+feh
+rofi
+[ttf-font-awesome]
+{Yosemite San Francisco Font, https://github.com/supermarin/YosemiteSanFranciscoFont}
+termite
+[i3blocks]
+gawk
+grep
+coreutils
+python
+sed
+acpi
+acpid
+bluez
+bluez-utils
+bc
+procps-ng
+iproute2
+net-tools
+sipcalc
+wireless_tools
+xf86-input-synaptics
+[gtk-theme-arc]
+[moka-icon-theme-git]
+{screenlayout-chooser, https://github.com/DevWurm/screenlayout-chooser}
+blueman

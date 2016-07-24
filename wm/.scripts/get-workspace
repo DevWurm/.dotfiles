@@ -1,0 +1,17 @@
+#!/usr/bin/python
+
+# The script depends on the following packages, fonts and scripts:
+#   - python
+
+import json;
+import sys;
+from subprocess import check_output;
+
+jsonData = check_output(["i3-msg", "-t", "get_workspaces"]);
+
+data = json.loads(jsonData.decode(encoding='UTF-8'));
+
+for d in data:
+        if d['focused']==True:
+                print(d['name']);
+

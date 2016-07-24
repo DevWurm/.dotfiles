@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# The script depends on the following packages, fonts and scripts:
+#    - ~/.scripts/get-workspace script and python (for getting the current workspace)
+#    - i3-wm (for 'i3-msg' command)
+
+command=$1
+targetworkspace=$2
+sourceworkspace=$(~/.scripts/get-workspace)
+
+i3-msg "workspace $targetworkspace; exec $command; workspace $sourceworkspace"

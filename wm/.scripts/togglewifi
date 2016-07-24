@@ -1,0 +1,13 @@
+#!/bin/sh
+# The script depends on the following packages, fonts and scripts:
+#  - networkmanager (for 'nmcli' command)
+
+state=$(nmcli radio wifi)
+
+if [ "$state" == "enabled" ]
+then
+	nmcli radio wifi off
+else
+	nmcli radio wifi on
+fi
+

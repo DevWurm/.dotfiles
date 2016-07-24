@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# The script depends on the following packages, fonts and scripts:
+#    - coreutils (for 'wc' and 'echo' command)
+#    - grep (for 'grep' command)
+#    - gawk (for 'awk' command)
+#    - bluez and bluez-utils (for 'hcitool' and "hciconfig" command)
+#    - fontawesome (for symbols)
+
+# Set default instance with parameter expansion
+BLOCK_INSTANCE=${BLOCK_INSTANCE:-""}
+
+numOfControllers=$(hcitool | grep hci | wc -l) 
+
+function printStatus {
+	# Test if controller is powered
+	if [ $(hciconfig "$1" | grep UP | awk '{print $2;}') == "RUNNING" ]
+	then
+		echo " up"
+		echo ""
+		echo
+	else
+		echo " down"
+		echo ""
+		echo
+	fi
+}
+
+function printError {
+	echo " No bluetooth"
+	echo ""
+	echo "#ee829f"
+}
+
+
+# If no controller is specified, test if more then 0 controllers (and by that a default controller) exist
+if [ "$BLOCK_INSTANCE" == ""  ] && [ $numOfControllers -gt 0 ]
+then
+	printStatus ""
+
+# If a controller is specified, test if the controller exists
+elif [ $(hcitool dev | grep "$BLOCK_INSTANCE" | wc -l) -gt 0 ]
+then
+	printStatus $BLOCK_INSTANCE
+
+else
+	printError
+fi
