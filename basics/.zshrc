@@ -1,4 +1,5 @@
 # Path to your oh-my-zsh installation.
+
   export ZSH=/home/devwurm/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -73,3 +74,6 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias v="nvim"
+
+# Setup ssh-agent with keychain
+eval `keychain --noask --quiet --eval id_rsa`
