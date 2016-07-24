@@ -1,0 +1,5 @@
+[user]
+	email = devwurm@devwurm.net
+	name = DevWurm
+[core]
+	editor = nvim
