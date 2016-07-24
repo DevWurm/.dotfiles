@@ -62,8 +62,28 @@
 
   # Program - Workspace bindings
     for_window [class="Spotify"] move to workspace $workspace9
-    assign [class="Rhythmbox"] move to workspace $workspace9
+    assign [class="Rhythmbox"] $workspace9
     assign [class="Firefox"] $workspace1
+    assign [class="Franz"] $workspace8
+    assign [class="Thunderbird"] $workspace8
+    assign [class="libreoffice"] $workspace3
+    assign [class="Gummi"] $workspace3
+    assign [class="DrRacket"] $workspace2
+    assign [class="HexChat"] $workspace8
+    assign [class="Gajim"] $workspace8
+    assign [class="Linphone"] $workspace8
+    assign [class="Mumble"] $workspace8
+    assign [class="Vocal"] $workspace9
+
+# Programm - Floating bindings
+    for_window [class="Pavucontrol"] floating enable
+    for_window [class="Enpass"] floating enable
+    for_window [class="Arandr"] floating enable
+    for_window [class="guvcview"] floating enable
+    for_window [class="Xarchiver"] floating enable
+    for_window [class="KeepNote"] floating enable
+    for_window [class="Gucharmap"] floating enable
+    for_window [class="Galculator"] floating enable
  
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -221,7 +241,7 @@
     bindsym $mod+Shift+s layout stacking
     bindsym $mod+Shift+t layout tabbed
     # toggles the orientation of tiled windows / switches to tiling layout
-      bindsym $mod+Shift+o layout toggle split 
+      bindsym $mod+t layout toggle split 
 
   # toggle tiling / floating
     bindsym $mod+Shift+space floating toggle
