@@ -1,0 +1,17 @@
+[Layout]
+name=Notebook and TV (Home)
+
+[eDP1]
+primary
+mode= 2560x1440
+pos= 2048x180
+rotate= normal
+
+[HDMI1]
+mode= 1920x1080
+pos= 4610x0
+rotate=normal
+scale= 1.5x1.5
+
+[DP2]
+off
