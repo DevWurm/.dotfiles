@@ -77,7 +77,6 @@
 
 # Programm - Floating bindings
     for_window [class="Pavucontrol"] floating enable
-    for_window [class="Enpass"] floating enable
     for_window [class="Arandr"] floating enable
     for_window [class="guvcview"] floating enable
     for_window [class="Xarchiver"] floating enable
