@@ -6,15 +6,19 @@ primary
 mode= 2560x1440
 pos= 2048x180
 rotate= normal
+scale= 1.2x1.2
+panning= 3072x1728
 
 [HDMI1]
 mode= 1920x1080
 pos= 4608x0
 rotate=normal
 scale= 1.5x1.5
+panning= 2880x1620
 
 [DP2]
 mode= 1024x768
 pos= 0x84
 rotate= normal
 scale= 2x2
+panning= 2048x1536

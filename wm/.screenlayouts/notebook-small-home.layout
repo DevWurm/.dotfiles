@@ -1,5 +1,5 @@
 [Layout]
-name=Notebook and TV (Home)
+name=Notebook and small screen (Home)
 
 [eDP1]
 primary
@@ -10,11 +10,11 @@ scale= 1.2x1.2
 panning= 3328x1872
 
 [HDMI1]
-mode= 1920x1080
-pos= 4610x0
-rotate=normal
-scale= 1.5x1.5
-panning= 2880x1620
+off
 
 [DP2]
-off
+mode= 1024x768
+pos= 0x84
+rotate= normal
+scale= 2x2
+panning= 2048x1536

@@ -23,6 +23,7 @@ call dein#add(expand('$HOME/.config/nvim/bundle/dein.vim'))
 
     " Default behavior
     call dein#add('DevWurm/autosession.vim')
+    call dein#add('jiangmiao/auto-pairs')
     
     " Navigation and manipulation
     call dein#add('DevWurm/moveupdown.vim')
@@ -95,6 +96,10 @@ call dein#add(expand('$HOME/.config/nvim/bundle/dein.vim'))
 
         " Systemd files
         call dein#add('kurayama/systemd-vim-syntax')
+
+        " TypeScript
+        call dein#add('Quramy/tsuquyomi', {'on_ft': 'typescript'})
+        call dein#add('leafgarland/typescript-vim', {'on_ft': 'typescript'})
 
         " Yaml
         call dein#add('stephpy/vim-yaml', {'on_ft': 'yaml'})

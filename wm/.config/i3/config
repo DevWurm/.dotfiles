@@ -77,6 +77,7 @@
 
 # Programm - Floating bindings
     for_window [class="Pavucontrol"] floating enable
+    for_window [class="Enpass"] floating enable
     for_window [class="Arandr"] floating enable
     for_window [class="guvcview"] floating enable
     for_window [class="Xarchiver"] floating enable
@@ -166,7 +167,7 @@
   exec_always compton -f
 
 # Set default screen layout
-  exec_always ~/.scripts/screenlayout-chooser/layout-applier ~/.screenlayouts/notebook-only.layout
+  exec_always ~/.scripts/screenlayout-chooser/layout-applier ~/.screenlayouts/notebook-only.layout && feh --bg-scale $wallpaper
 
 # Set background wallpaper
   exec_always feh --bg-scale $wallpaper
@@ -174,6 +175,7 @@
 
 # bar
   bar {
+          tray_output primary
   	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	  position bottom
 	  colors {
