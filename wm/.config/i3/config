@@ -65,7 +65,7 @@
     assign [class="Rhythmbox"] $workspace9
     assign [class="Firefox"] $workspace1
     assign [class="Franz"] $workspace8
-    assign [class="Thunderbird"] $workspace8
+    assign [class="Evolution"] $workspace8
     assign [class="libreoffice"] $workspace3
     assign [class="Gummi"] $workspace3
     assign [class="DrRacket"] $workspace2
