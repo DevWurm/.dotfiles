@@ -4,3 +4,4 @@ termite
 keychain
 zsh
 {oh-my-zsh, https://github.com/robbyrussell/oh-my-zsh}
+{nvm, https://github.com/creationix/nvm}

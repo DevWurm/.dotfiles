@@ -77,3 +77,6 @@ alias v="nvim"
 
 # Setup ssh-agent with keychain
 eval `keychain --noask --quiet --eval id_rsa`
+
+export NVM_DIR="/home/devwurm/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
