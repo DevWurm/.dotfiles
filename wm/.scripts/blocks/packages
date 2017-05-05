@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# The script depends on the following packages, fonts and scripts:
+#    - [yaourt] (for 'yaourt' command)
+#    - coreutils (for 'echo' and 'wc' command)
+#    - fontawesome (for symbols)
+#    - termite (for opering the terminal)
+
+if [ "$BLOCK_BUTTON" == "1" ]
+then
+    termite -e "yaourt -Syu --aur && exit"
+fi
+
+if [ "$BLOCK_BUTTON" == "2" ]
+then
+    termite -e "yaourt -Sy --aur && exit"
+fi
+
+packages=$(yaourt -Qqu --aur | wc -l)
+
+echo " $packages"
+echo " $packages"
+echo

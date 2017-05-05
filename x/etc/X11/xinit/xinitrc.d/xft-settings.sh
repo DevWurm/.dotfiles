@@ -3,7 +3,7 @@
 XFT_SETTINGS="
 Xft.antialias:  1
 Xft.autohint:   0
-Xft.dpi:        210
+Xft.dpi:        168
 Xft.hinting:    1
 Xft.hintstyle:  hintfull
 Xft.lcdfilter:  lcddefault

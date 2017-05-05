@@ -16,11 +16,11 @@ installUserLinks: basicsLinks wmLinks nvimLinks
 installUserDeps: basicsDeps wmDeps nvimDeps
 
 
-installSystem: x
+installSystem: x backup
 
-installSystemLinks: xLinks
+installSystemLinks: xLinks backupLinks
 
-installSystemDeps: xDeps
+installSystemDeps: xDeps backupDeps
 
 
 basics:	basicsLinks basicsDeps
@@ -56,3 +56,11 @@ xLinks:
 
 xDeps:
 	./install_deps.sh x.deps
+
+backup: backupLinks backupDeps
+
+backupLinks:
+	stow -v -t / backup
+
+backupDeps:
+	./install_deps.sh backup.deps

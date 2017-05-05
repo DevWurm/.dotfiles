@@ -1,24 +1,21 @@
 [Layout]
 name=Three Monitors (Home)
 
-[eDP1]
+[eDP-1]
 primary
 mode= 2560x1440
-pos= 2048x180
 rotate= normal
-scale= 1.2x1.2
-panning= 3072x1728
+scale= 1x1
+panning= 2560x1440+2048+0
 
-[HDMI1]
+[HDMI-1]
 mode= 1920x1080
-pos= 4608x0
 rotate=normal
 scale= 1.5x1.5
-panning= 2880x1620
+panning= 2880x1620+4608+0
 
-[DP2]
+[DP-2]
 mode= 1024x768
-pos= 0x84
 rotate= normal
 scale= 2x2
-panning= 2048x1536
+panning= 2048x1536+0+0

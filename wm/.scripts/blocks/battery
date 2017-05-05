@@ -31,6 +31,7 @@ then
 		echo " $charge% $time_string"
 		echo ""
 		echo "#ee829f"
+                exit 33
 	elif [ $charge -lt 15 ]
 	then
 		echo " $charge% $time_string"

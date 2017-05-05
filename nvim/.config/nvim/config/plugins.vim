@@ -34,6 +34,7 @@ call dein#add(expand('$HOME/.config/nvim/bundle/dein.vim'))
 
     " Autocompletion
     call dein#add('Shougo/deoplete.nvim')
+    call dein#add('Shougo/neoinclude.vim')
     call dein#add('SirVer/ultisnips') 
     call dein#add('honza/vim-snippets')
 
@@ -76,6 +77,9 @@ call dein#add(expand('$HOME/.config/nvim/bundle/dein.vim'))
 
         " JSX
         call dein#add('mxw/vim-jsx', {'on_ft': 'javascript'})
+
+        " LaTex
+        call dein#add('lervag/vimtex')
 
 	" Markdown
 	call dein#add('plasticboy/vim-markdown', {'on_ft': 'markdown'})

@@ -7,7 +7,7 @@ BG_COLOR=$1
 TEXT_COLOR=$2
 INACTIVE_BG_COLOR=$3
 INACTIVE_TEXT_COLOR=$4
-MONITOR_SIZE=$5
+MONITOR_SIZE=$(xrandr -q | grep " connected"| sed s/primary//g | awk -F " " '{print $3;}' | awk -F "x" '{print $2;}' | awk -F "+" '{print $1;}' | sort | head -n 1)
 FONT_SIZE=$6 
 
 # start the program launcher
@@ -17,7 +17,7 @@ rofi \
 -lines 3 \
 -eh 2 \
 -width 100 \
--padding $(echo "$(xwininfo -root |awk '/Height/ { print $2}') / 2.5" | bc) \
+-padding $(echo "$MONITOR_SIZE / 2.5" | bc) \
 -opacity "85" \
 -bw 0 \
 -color-enabled \

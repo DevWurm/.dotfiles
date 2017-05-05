@@ -51,7 +51,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git cabal docker npm pip python redis-cli sudo web-search)
+plugins=(git cabal docker npm pip python redis-cli sudo web-search yarn github mvn ng node zsh-syntax-highlighting wd)
 
 # User configuration
 
@@ -66,6 +66,9 @@ export LANG=en_US.UTF-8
 # Preferred editor
 export EDITOR='nvim'
 
+# Preferred browser
+export BROWSER='google-chrome-stable'
+
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
@@ -74,9 +77,20 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias v="nvim"
+alias nis="npm install --save"
+alias nid="npm install --save-dev"
+alias y="yarn"
+alias ya="yarn add"
+alias yad="yarn add --dev"
 
 # Setup ssh-agent with keychain
 eval `keychain --noask --quiet --eval id_rsa`
 
 export NVM_DIR="/home/devwurm/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# added by travis gem
+[ -f /home/devwurm/.travis/travis.sh ] && source /home/devwurm/.travis/travis.sh
+
+# load profile
+source ~/.zprofile

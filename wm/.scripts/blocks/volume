@@ -8,8 +8,13 @@
 #    - alsa-utils (for 'amixer' command)
 #    - fontawesome (for symbols)
 
- Set default instance with parameter expansion
+# Set default instance with parameter expansion
 BLOCK_INSTANCE=${BLOCK_INSTANCE:-Master}
+
+if [ "$BLOCK_BUTTON" == "1" ]
+then
+    pavucontrol &>/dev/null &
+fi
 
 vol=$(amixer get $BLOCK_INSTANCE |grep -m 1 % |awk '{print $5}'|sed 's/[^0-9]//g')
 

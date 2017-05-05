@@ -61,7 +61,7 @@ function interfaceState {
 function getWifiSSID {
 	interface=$1
 	
-	echo "$(iwconfig $interface | grep "ESSID" -m 1 | egrep -o 'ESSID:"[\.0-9a-zA-Z ]+"' | sed -e 's/ESSID://' -e 's/"//g')"
+	echo "$(iwconfig $interface | grep "ESSID" -m 1 | egrep -o 'ESSID:"[\.0-9a-zA-Z \-]+"' | sed -e 's/ESSID://' -e 's/"//g')"
 }
 
 function getWifiSignalStrength {

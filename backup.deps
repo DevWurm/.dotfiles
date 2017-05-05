@@ -1,0 +1,5 @@
+coreutils
+zenity
+libnotify
+cryptsetup
+{snappup, https://github.com/DevWurm/snappup}

@@ -1,0 +1,2 @@
+set relativenumber         " set linenumbers, wich are counted relative from the current line
+set clipboard^=unnamedplus  " make the + register (system clipboard register) the default register for y/p (make vim 'clipboard' synchronus with system clipboard)

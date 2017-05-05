@@ -1,0 +1,6 @@
+# UDEV rules to setup automatic backup upon disk insertion
+# You can get the discriminant informations with the following command :
+#   udevadm -a -p $(udevadm -q path -n /dev/sd?)
+
+# Backup - Rule for the hard disk that will backup video files
+KERNEL=="sd?1", ACTION=="add", SUBSYSTEMS=="scsi", ATTRS{vendor}=="Seagate", ATTRS{model}=="Expansion       ", RUN+="/opt/scripts/backup %k > /var/log/backup.log"

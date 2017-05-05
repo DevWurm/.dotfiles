@@ -1,0 +1,30 @@
+#!/bin/sh
+
+set -e
+set -u
+
+# a highly setup specific setup script using snappup
+
+device=$1
+
+zenity --question --text "Perform backup with $device"
+perform=$?
+
+if [ $perform == 0 ]
+then
+    # decrypt device
+    cryptsetup luksOpen $device "cryptbackup$(basename $device)"
+
+    # create mountpoint and mount device
+    mkdir -p "/tmp/backup/$(basename $device)"
+    mount "/dev/mapper/cryptbackup$(basename $device)" "/tmp/backup/$(basename $device)" -o subvol=backup,compress=zlib
+
+    # start backup
+    notify-send "Backup started to $device"
+    snappup "/tmp/backup/$(basename $device)/notebook" /opt/scripts/backuprules.rules
+    notify-send "Backup done in $device"
+
+    # unmount device
+    umount "/tmp/backup/$(basename $device)"
+    cryptsetup luksClose "cryptbackup$(basename $device)"
+fi

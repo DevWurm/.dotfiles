@@ -19,6 +19,16 @@ if dein#tap('deoplete.nvim') == 1
     let g:deoplete#omni#input_patterns.xml = '.+'
     let g:deoplete#omni#input_patterns.php = '.+'
     let g:deoplete#omni#input_patterns.python = '.+'
+    let g:deoplete#omni#input_patterns.tex = '\\(?:'
+        \ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+        \ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
+        \ . '|hyperref\s*\[[^]]*'
+        \ . '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|(?:include(?:only)?|input)\s*\{[^}]*'
+        \ . '|\w*(gls|Gls|GLS)(pl)?\w*(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|includepdf(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
+\ .')'
 
     autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif    " close completion window when not needed anymore 
 
@@ -26,13 +36,16 @@ if dein#tap('deoplete.nvim') == 1
     inoremap <expr><tab> pumvisible() ? "\<down>" : "\<tab>"
     inoremap <expr><s-tab> pumvisible() ? "\<up>" : "\<tab>"
     " close completion popup when esc is pressed
-    inoremap <expr><esc> pumvisible() ? "\<c-e>" : "\<esc>"
+    inoremap <expr><c-esc> pumvisible() ? "\<c-e>" : "\<esc>"
     " manually trigger completion popup when hidden or refresh if shown
-    inoremap <silent><expr><c-@> !pumvisible() ? "\<c-x>\<c-f>" : ""
+    inoremap <silent><expr><c-@> !pumvisible() ? deoplete#manual_complete() : deoplete#refresh()
 endif
 
 " setup default completion
-set omnifunc=syntaxcomplete#Complete
+set omnifunc=g:deoplete#omni_patterns
+
+" ressetting omnifunc for filetypes
+au BufNewFile,BufRead,BufEnter * set omnifunc=g:deoplete#omni_patterns
 
 " setup autocompletion plugins
 " deoplete-clang

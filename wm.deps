@@ -33,3 +33,5 @@ xf86-input-synaptics
 [moka-icon-theme-git]
 {screenlayout-chooser, https://github.com/DevWurm/screenlayout-chooser}
 blueman
+redshift
+[redshift-gtk]

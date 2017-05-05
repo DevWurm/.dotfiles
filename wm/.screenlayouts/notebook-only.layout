@@ -1,16 +1,15 @@
 [Layout]
 name=Notebook Screen Only
 
-[eDP1]
+[eDP-1]
 primary
 mode= 2560x1440
 pos= 0x0
 rotate= normal
-scale= 1.2x1.2
-panning= 3072x1728
+panning= 2560x1440+0+0
 
-[HDMI1]
+[HDMI-1]
 off
 
-[DP2]
+[DP-2]
 off
